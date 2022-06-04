@@ -13,8 +13,12 @@ func main() {
 	os.Setenv("SLACK_BOT_TOKEN", "---your-bot-user-auth-token---")
 	os.Setenv("CHANNEL_ID", "---your-channel-id---")
 
-	api := slack.New(os.Getenv("SLACK_BOT_TOKEN"))
-	channelArr := []string{os.Getenv("CHANNEL_ID")}
+	Upload("SLACK_BOT_TOKEN", "CHANNEL_ID")
+}
+
+func Upload(slack_bot_token string, channel_id string) {
+	api := slack.New(os.Getenv(slack_bot_token))
+	channelArr := []string{os.Getenv(channel_id)}
 
 	fileArr := []string{}                                      // create a slice to hold strings
 	filename, err := dialog.File().Load()                      // select file from dialog and load it
