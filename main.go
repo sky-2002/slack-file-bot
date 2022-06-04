@@ -25,11 +25,11 @@ func printCommandEvents(analyticsChannel <-chan *slacker.CommandEvent) {
 
 func main() {
 
-	os.Setenv("SLACK_BOT_TOKEN", "xoxb-3291137781171-3607791117671-GPIrB7hUmg35BTxfcjXTXrvk")
-	os.Setenv("CHANNEL_ID", "C03K041GQM6")
+	os.Setenv("SLACK_BOT_TOKEN", "")
+	os.Setenv("CHANNEL_ID", "")
 
 	// app token for age bot
-	os.Setenv("SLACK_APP_TOKEN", "xapp-1-A03J3P3RYDU-3624781024820-ff85d7e78faaa63249e1d89a3105fc69ad3100926b787d0af90b5f16a35dbed8")
+	os.Setenv("SLACK_APP_TOKEN", "")
 
 	// Upload("SLACK_BOT_TOKEN", "CHANNEL_ID")
 
