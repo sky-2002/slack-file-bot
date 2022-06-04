@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/slack-go/slack"
+	"github.com/sqweek/dialog"
 )
 
 func main() {
@@ -12,9 +13,23 @@ func main() {
 	os.Setenv("SLACK_BOT_TOKEN", "---your-bot-user-auth-token---")
 	os.Setenv("CHANNEL_ID", "---your-channel-id---")
 
-	api := slack.New(os.Getenv("SLACK_BOT_TOKEN"))
-	channelArr := []string{os.Getenv("CHANNEL_ID")}
-	fileArr := []string{"Test.txt"}
+	Upload("SLACK_BOT_TOKEN", "CHANNEL_ID")
+}
+
+func Upload(slack_bot_token string, channel_id string) {
+	api := slack.New(os.Getenv(slack_bot_token))
+	channelArr := []string{os.Getenv(channel_id)}
+
+	fileArr := []string{}                                      // create a slice to hold strings
+	filename, err := dialog.File().Load()                      // select file from dialog and load it
+	fmt.Printf("File is: %s and error is %v\n", filename, err) // filename contains path of selected file
+
+	if err != nil {
+		fmt.Println("Error occured while loading file.")
+		return
+	}
+
+	fileArr = append(fileArr, filename) // add filename to fileArr
 
 	for i := 0; i < len(fileArr); i++ {
 		params := slack.FileUploadParameters{
