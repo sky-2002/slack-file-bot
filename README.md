@@ -14,13 +14,12 @@ read write share etc.
 <br>
 Below is a test result of "Test.txt" uploaded by the file bot.<br>
 
-![Test image](./test.png)
+![Test image](./file-select-test.png)
 
 <br>
 
 Further Plans:<br>
-1. Add option to give file name from command line.
-2. Add an interface.
+1. Add an interface.
 
 
 
